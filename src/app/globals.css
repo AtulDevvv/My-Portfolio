@@ -2,32 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+
+@layer base {
+   .nav-items{
+    @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:text-white   transition duration-300 hover:bg-white/10
+   }
+   .hero-ring{
+    @apply  absolute inset-0  border-2 top-1/2 left-1/2 -translate-y-1/2  -translate-x-1/2 border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5 rounded-full
+   }
+   @layer utilities {
+      .container{
+         @apply lg:max-w-5xl
+      }
+   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.glow-on-hover {
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg,  #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.mask-image{
+   mask-image: radial-gradient(50% 50% at bottom center, black, transparent);
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+ 
+        scroll-behavior: smooth;
+  
+
+
+}
+
+
+canvas{
+    width: 100%;
+    height: 100vh
+  
+   
 }

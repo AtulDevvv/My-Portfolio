@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter,Calistoga,Poppins  } from "next/font/google";
+import {twMerge} from "tailwind-merge"
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+
+
+const inter= Inter({subsets:['latin'],variable:"--font-sans",weight:['400']})
+
+const calistoga=Calistoga({subsets:["latin"],variable:"--font-serif",
+  weight:["400"]
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  variable: "--font-poppins",
+  weight: ['400', '700'], // Adjust weights as needed
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={twMerge(inter.variable,calistoga.variable,poppins.variable,"bg-gray-900 text-white font-sans antialiased")}>{children}</body>
     </html>
   );
 }
