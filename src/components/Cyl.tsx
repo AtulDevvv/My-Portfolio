@@ -2,7 +2,8 @@
 import React, { useRef } from 'react'
 import { Mesh, Group } from 'three';
 import { useTexture } from '@react-three/drei'
-import * as THREE from 'three'
+import * as THREE from 'three';
+
 import { useFrame } from '@react-three/fiber'
 
 

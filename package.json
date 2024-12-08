@@ -13,6 +13,8 @@
     "@react-three/fiber": "^8.17.6",
     "@react-three/postprocessing": "^2.16.2",
     "@svgr/webpack": "^8.1.0",
+   "@types/three": "^0.162.0",
+
     "framer-motion": "^11.3.30",
     "locomotive-scroll": "^4.1.4",
     "next": "14.2.5",
